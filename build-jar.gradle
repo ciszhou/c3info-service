@@ -1,0 +1,34 @@
+buildscript {
+    repositories {
+        //mavenCentral()
+		maven { url "http://nexus-gss.uscis.dhs.gov/nexus/repository/benefits-maven2/"}
+		maven { url "http://nexus-gss.uscis.dhs.gov/nexus/repository/public"}
+    }
+    dependencies {
+        //classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.7.RELEASE")
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'epms-ngs-pdf-service'
+    //version =  '0.1.0'
+}
+
+repositories {
+    //mavenCentral()
+	maven { url "http://10.103.138.54:8083/nexus/content/groups/public"}
+}
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web")
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
